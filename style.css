@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body{
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+.logo{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    width: 15%;
+    border: 3px solid white;
+    border-radius: 50px;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+
+}
+.nav-list{
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list li{
+    list-style: none;
+    padding: 26px 20px;
+}
+
+.nav-list li a{
+    text-decoration: none;
+    color:black;
+
+}
+.nav-list li a:hover{
+    text-decoration: none;
+    color: tomato;
+}
+
+
+:root{
+    --dark:#262653;
+    --green: #2a9d8f;
+    --yellow: #e9c46a;
+    --orange: #f4a261;
+    --red: #e76f51;
+}
+
+/* INPUT AREA */
+
+.input__area{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.input__form{
+    width: 400px;
+    position: relative;
+}
+
+.input__form input{
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-bottom: solid 1px var(--green);
+    outline: none;
+    background: transparent
+}
+
+.input__form label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    color: var(--orange);
+    transition: 0.5s;
+}
+
+.input__form input:focus ~ label,
+.input__form input:valid ~ label{
+    top: -15px;
+    left: 0;
+    color: var(--green);
+    font-size: 12px;
+}
+
+.buttons{
+    width: 400px;
+    display: flex;
+}
+
+.task__btn{
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.task__btn:active{
+    transform: scale(0.98);
+}
+
+#add__task--btn{
+    background-color: var(--dark);
+}
+
+#update__task--btn{
+    background-color: var(--yellow);
+    display: none;
+}
+
+/* TASK LIST AREA */
+
+.tasks__container{
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tasks__container h1{
+    color: var(--orange);
+    border-bottom: var(--red) 3px solid;
+    padding: 0 1rem;
+}
+
+.task__list{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 0;
+    margin: auto;
+    column-gap: 8px;
+    row-gap: 8px;
+}
+
+.task{
+    width: 100%;
+}
+
+.task .important{
+    background-color: var(--orange);
+    color: white;
+    padding: 0 1rem;
+    width: 140px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin: 0 2rem;
+    visibility: hidden;
+}
+
+.task .task__body{
+    border: 1px solid var(--green);
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.task__info{
+    display: flex;
+    align-items: center;
+}
+
+.task__info .checkmark{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: solid 1px #eee;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.task__name{
+    font-size: 20px;
+}
+
+.task__icons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.task__icons i{
+    padding: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.fa-exclamation{
+    color: var(--orange);
+}
+
+.fa-pencil-alt{
+    color: var(--yellow);
+}
+
+.fa-times{
+    color: var(--red);
+}
+
+/* toggle classes for JavaScript */
+
+.checkmark.clicked{
+    border: none;
+}
+
+.important.marked{
+    visibility: visible;
+}
+
+.task__body.done .checkmark{
+    border: none;
+    background-color: var(--dark);
+}
+
+.task__body.done{
+    border: 1px solid var(--yellow);
+    background-color: #eee;
+}
+
+.task__body.done .task__name{
+    text-decoration: line-through;
+    color: gray;
+}
+
+.task__body.done .fa-exclamation,
+.task__body.done .fa-pencil-alt{
+    visibility: hidden;
+}
+
